@@ -1,24 +1,14 @@
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
+import { useContext } from "react";
+import TimerContext from "../context/TimerContext";
 import TimerInner from "./TimerInner";
 
 function Timer() {
-  /* const renderTime = ({ remainingTime }: { remainingTime: number }) => {
-    if (remainingTime === 0) {
-      return <p>Too late</p>;
-    }
-
-    return (
-      <div className="flex flex-col">
-        <p>Remaining</p>
-        <p>{remainingTime}</p>
-        <p>seconds</p>
-      </div>
-    );
-  }; */
+  const { isPlaying } = useContext(TimerContext);
 
   return (
     <CountdownCircleTimer
-      isPlaying
+      isPlaying={isPlaying}
       duration={60}
       colors={["#004777", "#F7B801", "#A30000", "#A30000"]}
       colorsTime={[10, 6, 3, 0]}

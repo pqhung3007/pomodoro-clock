@@ -1,19 +1,22 @@
 import { createContext, useState } from "react";
 import { TimerContent } from "../global/type";
 
-export const TimerContext = createContext<TimerContent>({
+const TimerContext = createContext<TimerContent>({
+  isPlaying: true,
   handlePauseClick: () => null,
   handleResetClick: () => null,
 });
 
 export const TimerProvider = ({ children }: { children: JSX.Element }) => {
-  const [first, setFirst] = useState<string>("");
-  const [second, setSecond] = useState<string>("");
-  const handlePauseClick = () => setFirst("hung");
-  const handleResetClick = () => setSecond("hung");
+  const [isPlaying, setIsPlaying] = useState(true);
+
+  const handlePauseClick = () => setIsPlaying((prevState) => !prevState);
+  const handleResetClick = () => console.log("reset");
+
   return (
     <TimerContext.Provider
       value={{
+        isPlaying,
         handlePauseClick,
         handleResetClick,
       }}
@@ -22,3 +25,5 @@ export const TimerProvider = ({ children }: { children: JSX.Element }) => {
     </TimerContext.Provider>
   );
 };
+
+export default TimerContext;
