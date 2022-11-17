@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 function TimerMode() {
   const timerModes = [
     { id: 1, name: "pomodoro" },
@@ -5,12 +7,17 @@ function TimerMode() {
     { id: 3, name: "long break" },
   ];
 
+  const [index, setIndex] = useState(0);
+
   return (
-    <div className="flex gap-4 rounded-full bg-zinc-700 p-2">
+    <div className="mt-8 flex gap-4 rounded-full bg-zinc-700 p-1">
       {timerModes.map(({ id, name }) => (
         <button
           key={id}
-          className="flex items-center justify-center rounded-full py-2 text-slate-300 duration-150 hover:text-white"
+          onClick={() => setIndex(id)}
+          className={`flex items-center justify-center rounded-full p-4 px-6 font-bold duration-150 hover:text-white ${
+            id === index ? "bg-sky-200 text-sky-700" : "text-slate-300"
+          }`}
         >
           {name}
         </button>
