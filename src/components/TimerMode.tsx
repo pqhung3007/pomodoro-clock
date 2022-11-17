@@ -7,7 +7,7 @@ function TimerMode() {
     { id: 3, name: "long break" },
   ];
 
-  const [index, setIndex] = useState(0);
+  const [index, setIndex] = useState(1);
 
   return (
     <div className="mt-8 flex gap-4 rounded-full bg-zinc-700 p-1">

@@ -12,7 +12,7 @@ function TimerInner({ remainingTime }: { remainingTime: number }) {
         className="text-2xl font-semibold uppercase tracking-[0.5rem] text-slate-300 duration-150 hover:text-white"
         onClick={handlePauseClick}
       >
-        {isPlaying ? "start" : "pause"}
+        {isPlaying ? "pause" : "start"}
       </button>
       <span className="text-7xl font-bold text-slate-300">
         {convertToMinutes(remainingTime)}
