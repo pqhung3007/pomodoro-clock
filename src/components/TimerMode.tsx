@@ -1,20 +1,27 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import TimerContext from "../context/TimerContext";
 
 function TimerMode() {
   const timerModes = [
-    { id: 1, name: "pomodoro" },
-    { id: 2, name: "short break" },
-    { id: 3, name: "long break" },
+    { id: 1, name: "pomodoro", value: "pomodoro" },
+    { id: 2, name: "short break", value: "shortBreak" },
+    { id: 3, name: "long break", value: "longBreak" },
   ];
 
   const [index, setIndex] = useState(1);
+  const { setMode } = useContext(TimerContext);
+
+  const handleChooseMode = (id: number, value: string) => {
+    setIndex(id);
+    setMode(value);
+  };
 
   return (
     <div className="mt-8 flex gap-4 rounded-full bg-zinc-700 p-1">
-      {timerModes.map(({ id, name }) => (
+      {timerModes.map(({ id, name, value }) => (
         <button
           key={id}
-          onClick={() => setIndex(id)}
+          onClick={() => handleChooseMode(id, value)}
           className={`flex items-center justify-center rounded-full p-4 px-6 font-bold duration-150 hover:text-white ${
             id === index ? "bg-sky-200 text-sky-700" : "text-slate-300"
           }`}

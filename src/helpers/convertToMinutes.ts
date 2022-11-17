@@ -6,3 +6,7 @@ export const convertToMinutes = (remainingTime: number): string => {
 
   return displayedMin + " : " + displayedSec;
 };
+
+export const convertMinutesToSeconds = (minutes: number): number => {
+  return Math.floor(minutes * 60);
+};
