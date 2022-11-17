@@ -4,11 +4,12 @@ import TimerContext from "../context/TimerContext";
 import TimerInner from "./TimerInner";
 
 function Timer() {
-  const { isPlaying } = useContext(TimerContext);
+  const { isPlaying, resetKey } = useContext(TimerContext);
 
   return (
     <CountdownCircleTimer
       isPlaying={isPlaying}
+      key={resetKey}
       duration={60}
       colors={["#004777", "#F7B801", "#A30000", "#A30000"]}
       colorsTime={[10, 6, 3, 0]}
