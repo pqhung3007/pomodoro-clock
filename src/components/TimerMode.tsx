@@ -23,7 +23,7 @@ function TimerMode() {
   };
 
   return (
-    <div className="mt-8 flex gap-4 rounded-full bg-zinc-700 p-1">
+    <div className="flex gap-4 rounded-full bg-zinc-700">
       {timerModes.map(({ id, name, value }) => (
         <button
           key={id}
