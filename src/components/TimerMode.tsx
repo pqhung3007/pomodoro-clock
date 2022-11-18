@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import TimerContext from "../context/TimerContext";
 
 function TimerMode() {
@@ -9,7 +9,13 @@ function TimerMode() {
   ];
 
   const [index, setIndex] = useState(1);
-  const { setMode } = useContext(TimerContext);
+  const { setMode, handleResetClick, handlePauseClick, timerMode, mode } =
+    useContext(TimerContext);
+
+  useEffect(() => {
+    handlePauseClick();
+    handleResetClick();
+  }, [timerMode, mode]);
 
   const handleChooseMode = (id: number, value: string) => {
     setIndex(id);
