@@ -17,8 +17,7 @@ function Timer() {
           isPlaying={isPlaying}
           key={resetKey}
           duration={getDurationByMode}
-          colors={["#004777", "#F7B801", "#A30000", "#A30000"]}
-          colorsTime={[10, 6, 3, 0]}
+          colors="#38bdf8"
           onComplete={() => handleResetClick()}
           size={400}
         >
@@ -31,8 +30,8 @@ function Timer() {
           isPlaying={isPlaying}
           key={resetKey}
           duration={getDurationByMode}
-          colors={["#004777", "#F7B801", "#A30000", "#A30000"]}
-          colorsTime={[10, 6, 3, 0]}
+          trailColor="#fff"
+          colors="#38bdf8"
           onComplete={() => handleResetClick()}
           size={330}
         >
