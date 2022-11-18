@@ -1,5 +1,6 @@
-import { useContext, Dispatch, SetStateAction } from "react";
+import { useContext, Dispatch, SetStateAction, ChangeEvent } from "react";
 import TimerContext from "../context/TimerContext";
+import { TimerMode } from "../global/type";
 
 function SettingsModal({
   setIsOpen,
@@ -12,19 +13,31 @@ function SettingsModal({
     {
       id: 1,
       name: "pomodoro",
+      value: "pomodoro",
       duration: timerMode.pomodoro,
     },
     {
       id: 2,
       name: "short break",
+      value: "shortBreak",
       duration: timerMode.shortBreak,
     },
     {
       id: 3,
       name: "long break",
+      value: "longBreak",
       duration: timerMode.longBreak,
     },
   ];
+
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+
+    setTimerMode((prevState: TimerMode) => ({
+      ...prevState,
+      [name]: +value,
+    }));
+  };
 
   return (
     <div className="fixed inset-0 bg-black/50" aria-hidden="true">
@@ -48,7 +61,7 @@ function SettingsModal({
           </div>
 
           <form className="space-y-4 pt-6 pb-12 md:flex md:items-center md:gap-4 md:space-y-0">
-            {timerModes.map(({ id, name, duration }) => (
+            {timerModes.map(({ id, name, value, duration }) => (
               <label
                 htmlFor=""
                 key={id}
@@ -58,15 +71,20 @@ function SettingsModal({
 
                 <input
                   type="number"
-                  name={name}
+                  name={value}
                   className="relative w-32 appearance-none bg-slate-100 py-2 pl-2 focus:outline-sky-300"
                   value={duration}
+                  onChange={handleInputChange}
                 />
               </label>
             ))}
           </form>
 
-          <button className="absolute -bottom-8 left-1/2 -translate-x-1/2 rounded-full bg-sky-400 px-6 py-2 text-white">
+          <button
+            type="submit"
+            className="absolute -bottom-8 left-1/2 -translate-x-1/2 rounded-full bg-sky-400 px-6 py-2 text-white"
+            onClick={() => setIsOpen((prevState) => !prevState)}
+          >
             Apply
           </button>
         </div>
