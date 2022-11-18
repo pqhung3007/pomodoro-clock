@@ -5,7 +5,8 @@ import TimerInner from "./TimerInner";
 import { convertMinutesToSeconds } from "../helpers/convertMinutesToSeconds";
 
 function Timer() {
-  const { isPlaying, resetKey, timerMode, mode } = useContext(TimerContext);
+  const { isPlaying, resetKey, timerMode, mode, handleResetClick } =
+    useContext(TimerContext);
 
   const getDurationByMode = convertMinutesToSeconds(+timerMode[mode]);
 
@@ -18,7 +19,7 @@ function Timer() {
           duration={getDurationByMode}
           colors={["#004777", "#F7B801", "#A30000", "#A30000"]}
           colorsTime={[10, 6, 3, 0]}
-          onComplete={() => ({ shouldRepeat: true, delay: 1 })}
+          onComplete={() => handleResetClick()}
           size={400}
         >
           {({ remainingTime }) => <TimerInner remainingTime={remainingTime} />}
@@ -32,7 +33,7 @@ function Timer() {
           duration={getDurationByMode}
           colors={["#004777", "#F7B801", "#A30000", "#A30000"]}
           colorsTime={[10, 6, 3, 0]}
-          onComplete={() => ({ shouldRepeat: true, delay: 1 })}
+          onComplete={() => handleResetClick()}
           size={330}
         >
           {({ remainingTime }) => <TimerInner remainingTime={remainingTime} />}
