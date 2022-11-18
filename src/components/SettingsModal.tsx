@@ -41,7 +41,7 @@ function SettingsModal({
 
   return (
     <div className="fixed inset-0 bg-black/50" aria-hidden="true">
-      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-xl bg-white p-4">
+      <div className="absolute left-1/2 top-1/2 w-[80vw] -translate-x-1/2 -translate-y-1/2 rounded-md bg-white p-4 md:w-[60vw]">
         <div className="relative">
           <div className="flex justify-between border-b border-slate-200 pb-4">
             <h2 className="text-2xl font-semibold">Setting</h2>
@@ -60,7 +60,7 @@ function SettingsModal({
             </button>
           </div>
 
-          <form className="space-y-4 pt-6 pb-12 md:flex md:items-center md:gap-4 md:space-y-0">
+          <form className="justify-center space-y-4 pt-6 pb-12 md:flex md:items-center md:gap-4 md:space-y-0">
             {timerModes.map(({ id, name, value, duration }) => (
               <label
                 htmlFor=""
@@ -82,7 +82,7 @@ function SettingsModal({
 
           <button
             type="submit"
-            className="absolute -bottom-8 left-1/2 -translate-x-1/2 rounded-full bg-sky-400 px-6 py-2 text-white"
+            className="absolute -bottom-8 left-1/2 -translate-x-1/2 rounded-md bg-sky-400 px-6 py-2 text-white"
             onClick={() => setIsOpen((prevState) => !prevState)}
           >
             Apply
