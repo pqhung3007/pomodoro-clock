@@ -9,7 +9,7 @@ function App() {
 
   return (
     <TimerProvider>
-      <main className="flex min-h-screen flex-col items-center justify-center gap-8 bg-zinc-800">
+      <main className="flex min-h-screen flex-col items-center justify-center gap-8 bg-zinc-800 px-4">
         <h1 className="text-3xl font-semibold uppercase tracking-wider text-white">
           Pomodoro
         </h1>

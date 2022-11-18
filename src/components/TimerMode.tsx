@@ -28,8 +28,8 @@ function TimerMode() {
         <button
           key={id}
           onClick={() => handleChooseMode(id, value)}
-          className={`flex items-center justify-center rounded-full p-4 px-6 font-bold duration-150 hover:text-white ${
-            id === index ? "bg-sky-200 text-sky-700" : "text-slate-300"
+          className={`flex items-center justify-center rounded-full px-3 py-2 font-semibold duration-150 hover:text-white md:px-6 md:py-4 ${
+            id === index ? "bg-sky-400 text-white" : "text-slate-300"
           }`}
         >
           {name}
