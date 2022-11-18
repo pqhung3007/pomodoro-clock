@@ -2,7 +2,7 @@ import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import { useContext } from "react";
 import TimerContext from "../context/TimerContext";
 import TimerInner from "./TimerInner";
-import { convertMinutesToSeconds } from "../helpers/convertToMinutes";
+import { convertMinutesToSeconds } from "../helpers/convertMinutesToSeconds";
 
 function Timer() {
   const { isPlaying, resetKey, timerMode, mode } = useContext(TimerContext);
