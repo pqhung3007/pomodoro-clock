@@ -2,8 +2,11 @@ import TimerMode from "./components/TimerMode";
 import Timer from "./components/Timer";
 import SettingsModal from "./components/SettingsModal";
 import { TimerProvider } from "./context/TimerContext";
+import { useState } from "react";
 
 function App() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <TimerProvider>
       <main className="flex min-h-screen flex-col items-center justify-center gap-8 bg-zinc-800">
@@ -13,7 +16,10 @@ function App() {
         <TimerMode />
         <Timer />
 
-        <button type="button">
+        <button
+          type="button"
+          onClick={() => setIsModalOpen((prevState) => !prevState)}
+        >
           <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28">
             <path
               fill="#D7E0FF"
@@ -23,7 +29,7 @@ function App() {
             />
           </svg>
         </button>
-        <SettingsModal />
+        {isModalOpen && <SettingsModal setIsOpen={setIsModalOpen} />}
       </main>
     </TimerProvider>
   );
