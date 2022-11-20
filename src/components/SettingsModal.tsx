@@ -36,7 +36,8 @@ function SettingsModal({
 
           <button
             type="submit"
-            className={`absolute -bottom-8 left-1/2 -translate-x-1/2 rounded-md bg-${color} px-6 py-2 text-white`}
+            className={`absolute -bottom-8 left-1/2 -translate-x-1/2 rounded-md px-6 py-2 text-white`}
+            style={{ backgroundColor: `#${color}` }}
             onClick={() => setIsOpen((prevState) => !prevState)}
           >
             Apply

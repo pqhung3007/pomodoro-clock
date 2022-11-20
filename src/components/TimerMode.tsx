@@ -31,8 +31,9 @@ function TimerMode() {
           key={id}
           onClick={() => handleChooseMode(id, value)}
           className={`flex items-center justify-center rounded-full px-3 py-2 font-semibold duration-150 hover:text-white md:px-6 md:py-4 ${
-            id === index ? `bg-${color} text-white` : "text-slate-300"
+            id === index ? ` text-white` : "text-slate-300"
           }`}
+          style={{ backgroundColor: id === index ? `#${color}` : "" }}
         >
           {name}
         </button>

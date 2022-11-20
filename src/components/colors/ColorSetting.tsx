@@ -1,13 +1,13 @@
 import { useContext, useState } from "react";
 import { ColorOptions } from "../../global/type";
 import ColorContext from "../../context/ColorContext";
-import CheckIcon from "../../../public/assets/icon-checkmark.svg";
+import CheckIcon from "/assets/icon-checkmark.svg";
 
 function ColorSetting() {
   const colorOptions: ColorOptions[] = [
-    { id: 1, value: "sky" },
-    { id: 2, value: "yellow" },
-    { id: 3, value: "emerald" },
+    { id: 1, value: "0ea5e9" },
+    { id: 2, value: "eab308" },
+    { id: 3, value: "10b981" },
   ];
   const [index, setIndex] = useState(1);
   const { setColor } = useContext(ColorContext);
@@ -24,7 +24,8 @@ function ColorSetting() {
         {colorOptions.map(({ id, value }) => (
           <button
             key={id}
-            className={`flex h-10 w-10 items-center justify-center rounded-full bg-${value}`}
+            className={`flex h-10 w-10 items-center justify-center rounded-full`}
+            style={{ backgroundColor: `#${value}` }}
             onClick={() => handleChangeColor(id, value)}
           >
             {index === id && <img src={CheckIcon} />}
