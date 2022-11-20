@@ -1,5 +1,6 @@
 import { useState, useContext, useEffect } from "react";
 import TimerContext from "../context/TimerContext";
+import ColorContext from "../context/ColorContext";
 
 function TimerMode() {
   const timerModes = [
@@ -11,6 +12,7 @@ function TimerMode() {
   const [index, setIndex] = useState(1);
   const { setMode, handleResetClick, handlePauseClick, timerMode, mode } =
     useContext(TimerContext);
+  const { color } = useContext(ColorContext);
 
   useEffect(() => {
     handlePauseClick();
@@ -29,7 +31,7 @@ function TimerMode() {
           key={id}
           onClick={() => handleChooseMode(id, value)}
           className={`flex items-center justify-center rounded-full px-3 py-2 font-semibold duration-150 hover:text-white md:px-6 md:py-4 ${
-            id === index ? "bg-sky-400 text-white" : "text-slate-300"
+            id === index ? `bg-${color} text-white` : "text-slate-300"
           }`}
         >
           {name}

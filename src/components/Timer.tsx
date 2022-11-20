@@ -1,12 +1,14 @@
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import { useContext } from "react";
 import TimerContext from "../context/TimerContext";
+import ColorContext from "../context/ColorContext";
 import TimerInner from "./TimerInner";
 import { convertMinutesToSeconds } from "../helpers/convertMinutesToSeconds";
 
 function Timer() {
   const { isPlaying, resetKey, timerMode, mode, handleResetClick } =
     useContext(TimerContext);
+  const { color } = useContext(ColorContext);
 
   const getDurationByMode = convertMinutesToSeconds(+timerMode[mode]);
 
@@ -17,7 +19,7 @@ function Timer() {
           isPlaying={isPlaying}
           key={resetKey}
           duration={getDurationByMode}
-          colors="#38bdf8"
+          colors={color}
           onComplete={() => handleResetClick()}
           size={400}
         >
@@ -31,7 +33,7 @@ function Timer() {
           key={resetKey}
           duration={getDurationByMode}
           trailColor="#fff"
-          colors="#38bdf8"
+          colors={color}
           onComplete={() => handleResetClick()}
           size={330}
         >

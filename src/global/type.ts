@@ -16,3 +16,13 @@ export interface TimerContent {
 export interface TimerMode {
   [key: string]: number;
 }
+
+export interface ColorOptions {
+  id: number;
+  value: string;
+}
+
+export interface ColorContent {
+  color: string;
+  setColor: Dispatch<SetStateAction<string>>;
+}

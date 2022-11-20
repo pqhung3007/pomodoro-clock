@@ -1,11 +1,15 @@
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, useContext } from "react";
+import ColorSetting from "./colors/ColorSetting";
 import TimerSetting from "./time/TimerSetting";
+import ColorContext from "../context/ColorContext";
 
 function SettingsModal({
   setIsOpen,
 }: {
   setIsOpen: Dispatch<SetStateAction<boolean>>;
 }) {
+  const { color } = useContext(ColorContext);
+
   return (
     <div className="fixed inset-0 bg-black/50" aria-hidden="true">
       <div className="absolute left-1/2 top-1/2 w-[80vw] -translate-x-1/2 -translate-y-1/2 rounded-md bg-white p-4 md:w-[60vw]">
@@ -28,10 +32,11 @@ function SettingsModal({
           </div>
 
           <TimerSetting />
+          <ColorSetting />
 
           <button
             type="submit"
-            className="absolute -bottom-8 left-1/2 -translate-x-1/2 rounded-md bg-sky-400 px-6 py-2 text-white"
+            className={`absolute -bottom-8 left-1/2 -translate-x-1/2 rounded-md bg-${color} px-6 py-2 text-white`}
             onClick={() => setIsOpen((prevState) => !prevState)}
           >
             Apply
