@@ -10,6 +10,9 @@ function Timer() {
     useContext(TimerContext);
   const { color } = useContext(ColorContext);
 
+  const ringColor: string =
+    color === "sky" ? "0ea5e9" : color === "yellow" ? "eab308" : "10b981";
+
   const getDurationByMode = convertMinutesToSeconds(+timerMode[mode]);
 
   return (
@@ -19,7 +22,7 @@ function Timer() {
           isPlaying={isPlaying}
           key={resetKey}
           duration={getDurationByMode}
-          colors={color}
+          colors={`#${ringColor}`}
           onComplete={() => handleResetClick()}
           size={400}
         >
@@ -33,7 +36,7 @@ function Timer() {
           key={resetKey}
           duration={getDurationByMode}
           trailColor="#fff"
-          colors={color}
+          colors={`#${ringColor}`}
           onComplete={() => handleResetClick()}
           size={330}
         >

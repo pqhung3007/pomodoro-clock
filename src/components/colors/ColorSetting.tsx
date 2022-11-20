@@ -4,12 +4,12 @@ import ColorContext from "../../context/ColorContext";
 
 function ColorSetting() {
   const colorOptions: ColorOptions[] = [
-    { id: 1, value: "sky-500" },
-    { id: 2, value: "yellow-500" },
-    { id: 3, value: "emerald-500" },
+    { id: 1, value: "sky" },
+    { id: 2, value: "yellow" },
+    { id: 3, value: "emerald" },
   ];
 
-  const { color, setColor } = useContext(ColorContext);
+  const { setColor } = useContext(ColorContext);
 
   return (
     <div className="flex flex-col items-center justify-between space-y-4 pb-8 md:flex-row md:space-y-0">
