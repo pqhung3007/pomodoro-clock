@@ -26,3 +26,7 @@ export interface ColorContent {
   color: string;
   setColor: Dispatch<SetStateAction<string>>;
 }
+
+export interface SoundContent {
+  playFinishSound: () => void;
+}
